@@ -17,6 +17,16 @@ class Config(ConfigParser):
             self.read_path(self.path)
 
 
+    def join(self, config: ConfigParser):
+        for _section in config.sections():
+            if _section == CONFIG_META_SECTION:
+                continue
+            if not _section in self:
+                self.add_section(_section)
+            for _key, _val in config[_section].items():
+                self[_section][_key] = _val
+
+
     def read_path(self, path:str|Path):
         path = Path(path)
         _configs = []
