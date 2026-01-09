@@ -8,6 +8,10 @@ from pathlib import Path
 
 
 
+CONFIG_META_SECTION = "__meta__"
+CONFIG_META_SECTION_INCLUDE = "__include__"
+
+
 class Config(ConfigParser):
 
     def __init__(self, path:str|Path|None=None):
